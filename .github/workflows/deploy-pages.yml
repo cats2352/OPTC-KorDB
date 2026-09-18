@@ -1,0 +1,49 @@
+# main 브랜치에 푸시하면 정적 웹사이트를 GitHub Pages에 자동 배포합니다.
+name: GitHub Pages 배포
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 파일 내려받기
+        uses: actions/checkout@v4
+
+      # Pages의 사이트 루트에는 web 내용을 두고, 캐릭터 이미지 api도 함께 배치합니다.
+      - name: 배포용 정적 파일 구성
+        run: |
+          mkdir -p "$RUNNER_TEMP/site"
+          cp -R web/. "$RUNNER_TEMP/site/"
+          cp -R api "$RUNNER_TEMP/site/api"
+
+      - name: GitHub Pages 설정
+        uses: actions/configure-pages@v5
+
+      - name: 배포 파일 업로드
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ runner.temp }}/site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: GitHub Pages에 배포
+        id: deployment
+        uses: actions/deploy-pages@v4
