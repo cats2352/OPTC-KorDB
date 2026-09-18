@@ -1,0 +1,28 @@
+<div class="filter-layer" id="filter-layer" hidden>
+  <button class="filter-backdrop" type="button" aria-label="필터 닫기"></button>
+  <aside class="filter-drawer" id="filter-drawer" aria-label="캐릭터 필터" aria-modal="true" role="dialog">
+    <header class="filter-header">
+      <div><p class="section-label">FILTER PANEL</p><h2>캐릭터 필터</h2><p class="filter-result-count">적용 결과 <strong id="filter-result-count" aria-live="polite">0</strong>명</p></div>
+      <button class="icon-button" id="filter-close" type="button" aria-label="필터 닫기">×</button>
+    </header>
+    <div class="filter-tools">
+      <label class="filter-search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+        <span class="sr-only">필터 항목 검색</span><input id="filter-search" type="search" placeholder="필터 항목 찾기..." autocomplete="off" />
+      </label>
+      <nav class="filter-jump" aria-label="필터 섹션 바로가기">
+        <button type="button" data-section="sort">정렬</button><button type="button" data-section="attribute">속성</button><button type="button" data-section="type">타입</button><button type="button" data-section="captain-effect">선장 효과</button><button type="button" data-section="class">공통전투</button><button type="button" data-section="rarity">등급</button>
+      </nav>
+      <div class="selected-summary" id="selected-summary"><span>선택된 조건</span><strong>없음</strong></div>
+    </div>
+    <div class="filter-sections" id="filter-sections">
+      <details class="filter-section" id="sort" open><summary><span>정렬</span><span class="summary-count">기본</span></summary><div class="filter-options two-column"><button class="option-button is-selected" type="button" data-filter="도감 번호">도감 번호</button><button class="option-button" type="button" data-filter="체력">체력</button><button class="option-button" type="button" data-filter="공격력">공격력</button><button class="option-button" type="button" data-filter="회복력">회복력</button></div></details>
+      <details class="filter-section" id="attribute"><summary><span>속성</span><span class="summary-count">6</span></summary><div class="filter-options attribute-options"><button class="option-button" type="button" data-filter="힘"><i class="attribute str">힘</i><span>힘</span></button><button class="option-button" type="button" data-filter="속"><i class="attribute qck">속</i><span>속</span></button><button class="option-button" type="button" data-filter="기"><i class="attribute dex">기</i><span>기</span></button><button class="option-button" type="button" data-filter="심"><i class="attribute psy">심</i><span>심</span></button><button class="option-button" type="button" data-filter="지"><i class="attribute int">지</i><span>지</span></button><button class="option-button" type="button" data-filter="무"><i class="attribute none">무</i><span>무</span></button></div></details>
+      <details class="filter-section" id="type"><summary><span>타입</span><span class="summary-count">8</span></summary><div class="filter-options two-column"><button class="option-button" type="button" data-filter="격투">격투</button><button class="option-button" type="button" data-filter="사격">사격</button><button class="option-button" type="button" data-filter="참격">참격</button><button class="option-button" type="button" data-filter="타격">타격</button><button class="option-button" type="button" data-filter="자유">자유</button><button class="option-button" type="button" data-filter="박식">박식</button><button class="option-button" type="button" data-filter="강인">강인</button><button class="option-button" type="button" data-filter="야심">야심</button></div><div class="type-filter-conditions"><button class="type-condition" type="button" data-type-condition="onlySelected" aria-pressed="false">선택한 타입 외의 타입을 가진 캐릭터는 표시하지 않음</button><button class="type-condition" type="button" data-type-condition="excludeSingleType" aria-pressed="false">타입이 1개인 캐릭터 제외</button></div></details>
+      <details class="filter-section" id="captain-effect"><summary><span>선장 효과</span><span class="summary-count">규칙형</span></summary><div class="captain-filter-tree" id="captain-filter-tree"></div></details>
+      <details class="filter-section" id="class"><summary><span>공통전투</span><span class="summary-count">6</span></summary><div class="filter-options two-column"><button class="option-button" type="button" data-filter="공격형">공격형</button><button class="option-button" type="button" data-filter="방어형">방어형</button><button class="option-button" type="button" data-filter="회복형">회복형</button><button class="option-button" type="button" data-filter="지원형">지원형</button><button class="option-button" type="button" data-filter="디버프형">디버프형</button><button class="option-button" type="button" data-filter="밸런스형">밸런스형</button></div></details>
+      <details class="filter-section" id="rarity"><summary><span>등급</span><span class="summary-count">1—6+</span></summary><div class="filter-options rarity-options"><button class="option-button" type="button" data-filter="1">★</button><button class="option-button" type="button" data-filter="2">★★</button><button class="option-button" type="button" data-filter="3">★★★</button><button class="option-button" type="button" data-filter="4">★★★★</button><button class="option-button" type="button" data-filter="5">★★★★★</button><button class="option-button" type="button" data-filter="6">★★★★★★</button><button class="option-button rarity-plus" type="button" data-filter="6+">★★★★★★+</button></div></details>
+    </div>
+    <footer class="filter-footer"><button class="reset-button" id="filter-reset" type="button">선택 초기화</button><button class="apply-button" id="filter-done" type="button">필터 닫기</button><p>선택한 필터는 목록에 바로 적용됩니다.</p></footer>
+  </aside>
+</div>

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="원피스 트레저 크루즈의 4,000개가 넘는 캐릭터 정보를 확인하는 데이터베이스"
+    />
+    <meta name="theme-color" content="#f7f8fa" />
+    <meta name="color-scheme" content="light dark" />
+    <title>원피스 트레저 크루즈 데이터베이스</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23155eef'/%3E%3Cpath d='M18 17h18c9 0 15 5 15 15S45 47 36 47H18z' fill='none' stroke='white' stroke-width='7'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="./assets/js/theme.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">본문으로 바로가기</a>
+
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="사이트 정보">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">D</span>
+          <span>OPTC Database</span>
+        </div>
+
+        <div class="sidebar-block">
+          <p class="sidebar-label">DATABASE</p>
+          <div class="sidebar-current" aria-current="page">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 5h16v14H4zM8 9h8M8 13h5" />
+              </svg>
+            </span>
+            <span>메인 화면</span>
+          </div>
+        </div>
+
+        <div class="sidebar-block archive-summary">
+          <p class="sidebar-label">ARCHIVE</p>
+          <strong>4,000+</strong>
+          <span>캐릭터 데이터</span>
+          <div class="summary-line" aria-hidden="true"><span></span></div>
+        </div>
+
+        <div class="sidebar-footer">
+          <span class="status-dot" aria-hidden="true"></span>
+          <div>
+            <strong>MAIN / v1.0</strong>
+            <span>Static database portal</span>
+          </div>
+        </div>
+      </aside>
+
+      <div class="workspace">
+        <header class="topbar">
+          <div class="mobile-brand">
+            <span class="brand-mark" aria-hidden="true">D</span>
+            <span>OPTC DB</span>
+          </div>
+          <p>ONE PIECE TREASURE CRUISE</p>
+          <div class="topbar-meta">
+            <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-icon aria-hidden="true">☾</span><span data-theme-label>다크 모드</span></button>
+            <span>KR</span>
+            <span class="topbar-index">001</span>
+          </div>
+        </header>
+
+        <main id="main" class="dashboard">
+          <section class="page-heading" aria-labelledby="hero-title">
+            <div>
+              <p class="eyebrow">CHARACTER INFORMATION ARCHIVE</p>
+              <h1 id="hero-title">원피스 트레저 크루즈<br />데이터베이스</h1>
+            </div>
+            <p class="heading-description">
+              4,000개가 넘는 캐릭터의 정보를<br />한눈에 확인하세요!
+            </p>
+          </section>
+
+          <section class="dashboard-grid" aria-label="데이터베이스 안내">
+            <article class="card access-card">
+              <div class="card-heading">
+                <div>
+                  <p class="card-label">QUICK ACCESS</p>
+                  <h2>캐릭터 데이터베이스</h2>
+                </div>
+                <span class="card-number">01</span>
+              </div>
+
+              <div class="access-content">
+                <p>
+                  캐릭터 정보와 능력치를 빠르고 명확하게<br class="desktop-only" />
+                  확인할 수 있는 아카이브입니다.
+                </p>
+                <button class="database-button" id="database-button" type="button">
+                  <span>캐릭터 DB 바로가기</span>
+                  <span class="button-arrow" aria-hidden="true">→</span>
+                </button>
+              </div>
+            </article>
+
+            <article class="card count-card">
+              <div class="card-heading">
+                <div>
+                  <p class="card-label">CHARACTERS</p>
+                  <h2>수록 데이터</h2>
+                </div>
+                <span class="card-number">02</span>
+              </div>
+
+              <div class="count-visual" aria-label="4,000개 이상의 캐릭터 데이터">
+                <div class="count-ring">
+                  <div>
+                    <strong>4,000+</strong>
+                    <span>CHARACTERS</span>
+                  </div>
+                </div>
+                <div class="count-key">
+                  <span><i class="key-dot blue"></i>Character data</span>
+                  <span><i class="key-dot gray"></i>More to come</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card banner-card">
+              <div class="card-heading banner-card-heading">
+                <div>
+                  <p class="card-label">BANNER AREA</p>
+                  <h2>공지 및 주요 소식</h2>
+                </div>
+                <span class="banner-size">1600 × 500 권장</span>
+              </div>
+
+              <a class="banner" id="site-banner" href="#" aria-label="배너 링크">
+                <div class="banner-fallback" aria-hidden="true">
+                  <span class="banner-grid-label">IMAGE SLOT</span>
+                  <strong>YOUR BANNER<br />GOES HERE</strong>
+                  <span class="banner-cross">+</span>
+                </div>
+                <div class="banner-overlay">
+                  <p id="banner-kicker">FEATURED / NOTICE</p>
+                  <p id="banner-title">새로운 소식을 위한 배너 영역</p>
+                </div>
+              </a>
+            </article>
+
+            <article class="card compact-card">
+              <div>
+                <p class="card-label">PROJECT STATUS</p>
+                <h2>메인 화면</h2>
+              </div>
+              <div class="status-value">
+                <span class="status-dot" aria-hidden="true"></span>
+                <strong>READY</strong>
+              </div>
+            </article>
+
+            <article class="card compact-card credit-card">
+              <div>
+                <p class="card-label">CREDIT</p>
+                <h2>원피스 트레저 크루즈 갤러리</h2>
+              </div>
+              <strong class="creator">고양이 &amp; 하야덴</strong>
+            </article>
+          </section>
+        </main>
+
+        <footer class="site-footer">
+          <span>OPTC DATABASE</span>
+          <span>© <span id="current-year">2026</span></span>
+        </footer>
+      </div>
+    </div>
+
+    <dialog class="notice-dialog" id="database-notice">
+      <div class="dialog-topline">
+        <span>DATABASE / NOTICE</span>
+        <button class="dialog-close" type="button" aria-label="안내창 닫기">×</button>
+      </div>
+      <div class="dialog-content">
+        <span class="dialog-icon" aria-hidden="true">DB</span>
+        <p class="card-label">COMING SOON</p>
+        <h2>캐릭터 데이터베이스를 준비하고 있습니다.</h2>
+        <p>완성되면 이 버튼에서 바로 이동할 수 있어요.</p>
+      </div>
+    </dialog>
+
+    <script src="./assets/js/config.js"></script>
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>

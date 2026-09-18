@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="원피스 트레저 크루즈 캐릭터 데이터베이스" />
+    <meta name="color-scheme" content="light dark" />
+    <title>캐릭터 DB | 원피스 트레저 크루즈</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="../assets/js/theme.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="메인으로 이동"><span class="brand-mark">T</span><span>OPTC DB</span></a>
+      <span class="header-label">ONE PIECE TREASURE CRUISE / DATABASE</span>
+      <div class="header-actions"><button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-icon aria-hidden="true">☾</span><span data-theme-label>다크 모드</span></button><a class="home-link" href="../index.html">메인으로 <span aria-hidden="true">↗</span></a></div>
+    </header>
+
+    <main class="database-page">
+      <section class="page-heading">
+        <div><p class="eyebrow" id="database-range">DATABASE</p><h1>캐릭터 데이터베이스</h1></div>
+        <p>도감 번호와 이름으로 캐릭터를 찾고,<br />카드를 눌러 상세 스탯을 확인하세요.</p>
+      </section>
+
+      <section class="toolbar" aria-label="캐릭터 검색과 필터">
+        <label class="search-field">
+          <span class="search-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></span>
+          <span class="sr-only">캐릭터 이름 검색</span><input id="character-search" type="search" placeholder="캐릭터 이름 검색..." autocomplete="off" />
+        </label>
+        <button class="filter-open" id="filter-open" type="button" aria-controls="filter-drawer" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg><span>필터 열기</span><span class="filter-count" hidden>0</span>
+        </button>
+      </section>
+      <div class="search-note" id="search-note">이름 또는 도감 번호로 검색할 수 있습니다.</div>
+
+      <section class="results-panel" aria-labelledby="results-title">
+        <div class="results-header">
+          <div><p class="section-label">CHARACTERS</p><h2 id="results-title">전체 캐릭터</h2></div>
+          <div class="results-actions">
+            <div class="sort-toggle" role="group" aria-label="도감 번호 정렬">
+              <button class="is-active" type="button" data-sort="asc" aria-pressed="true"><span aria-hidden="true">↑</span> No. 오름차순</button>
+              <button type="button" data-sort="desc" aria-pressed="false"><span aria-hidden="true">↓</span> No. 내림차순</button>
+            </div>
+            <div class="result-meta"><span><strong id="result-total">0</strong> slots</span><span id="range-label">—</span></div>
+          </div>
+        </div>
+        <div class="character-grid" id="character-grid" aria-live="polite"></div>
+        <nav class="pagination" aria-label="캐릭터 목록 페이지">
+          <button class="page-nav" id="previous-page" type="button" aria-label="이전 페이지"><span aria-hidden="true">←</span><span class="page-nav-label">이전</span></button>
+          <div class="page-numbers" id="page-numbers"></div>
+          <button class="page-nav" id="next-page" type="button" aria-label="다음 페이지"><span class="page-nav-label">다음</span><span aria-hidden="true">→</span></button>
+        </nav>
+      </section>
+    </main>
+
+    <footer class="site-footer"><span>원피스 트레저 크루즈 갤러리</span><strong>고양이 &amp; 하야덴</strong></footer>
+    <div id="filter-panel-root"></div>
+
+    <template id="character-template">
+      <article class="character-card">
+        <header class="character-card-header"><button class="favorite-button" type="button" aria-pressed="false" aria-label="즐겨찾기에 추가">☆</button><span class="character-number">No.0001</span></header>
+        <div class="character-body" role="button" tabindex="0" aria-label="캐릭터 상세 정보 보기">
+          <div class="thumbnail-frame"><img class="character-thumbnail" width="112" height="112" loading="lazy" alt="" /><div class="thumbnail-placeholder" hidden><span>IMAGE</span><strong>—</strong></div></div>
+          <div class="character-info"><h3>캐릭터 이름 준비 중</h3><div class="tag-row"><span>속성 <b class="character-attribute">—</b></span><span>타입 <b class="character-class">—</b></span></div><dl class="card-meta-grid"><div><dt>등급</dt><dd class="character-stars">—</dd></div><div><dt>코스트</dt><dd class="character-cost">—</dd></div></dl></div>
+        </div>
+      </article>
+    </template>
+
+    <dialog class="detail-dialog" id="character-detail" aria-labelledby="detail-title">
+      <header class="detail-header"><p class="section-label">CHARACTER / STATS</p><button class="icon-button" id="detail-close" type="button" aria-label="상세 정보 닫기">×</button></header>
+      <div class="detail-content">
+        <nav class="detail-variant-tabs" id="detail-variant-tabs" aria-label="캐릭터 형태 선택" hidden></nav>
+        <section class="detail-hero" aria-label="캐릭터 기본 정보"><div class="detail-art-frame"><img class="detail-character-image" id="detail-thumbnail" alt="" /><div class="thumbnail-placeholder" id="detail-thumbnail-placeholder" hidden><span>IMAGE</span><strong>—</strong></div></div><div><p class="detail-number" id="detail-number">No.0001</p><h2 id="detail-title">캐릭터 이름</h2><p class="detail-tags" id="detail-tags">—</p><div class="detail-character-tags" id="detail-character-tags" aria-label="캐릭터 태그" hidden></div></div></section>
+        <section class="detail-section" aria-labelledby="basic-stats-title"><div class="detail-section-heading"><p class="section-label">BASIC</p><h3 id="basic-stats-title">기본 정보</h3></div><dl class="detail-stat-grid" id="basic-stat-list"></dl></section>
+        <section class="detail-section" aria-labelledby="stats-title"><div class="detail-section-heading"><p class="section-label">STATS</p><h3 id="stats-title">스탯</h3></div><dl class="detail-stat-grid" id="stat-list"></dl></section>
+        <section class="detail-section detail-abilities" id="detail-abilities" aria-labelledby="abilities-title" hidden><div class="detail-section-heading"><p class="section-label">ABILITIES</p><h3 id="abilities-title">능력 정보</h3><button class="ability-toggle-all" id="ability-toggle-all" type="button" hidden>전부 열기</button></div><div id="ability-list"></div></section>
+        <section class="detail-section detail-festival" id="detail-festival" aria-labelledby="festival-title" hidden><div class="detail-section-heading"><p class="section-label">PIRATE FESTIVAL</p><h3 id="festival-title">해적제</h3></div><div id="festival-list"></div></section>
+      </div>
+    </dialog>
+    <script src="../data/units.js"></script>
+    <script src="../data/details.js"></script>
+    <script src="../data/cooldowns.js"></script>
+    <script src="../data/characterTags.js"></script>
+    <script src="../data/festival.js"></script>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
