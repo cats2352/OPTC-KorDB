@@ -79,14 +79,21 @@ function imageDirectory(id) {
   };
 }
 
+// GitHub Pages는 저장소 이름 아래에 사이트를 배포하므로, 온라인에서는 저장소 경로를 이미지 주소에 포함합니다.
+function imageApiBase() {
+  if (!window.location.hostname.endsWith("github.io")) return "../../api";
+  const [repositoryName] = window.location.pathname.split("/").filter(Boolean);
+  return `/${repositoryName}/api`;
+}
+
 export function thumbnailPath(id, region = "glo") {
   const { thousand, hundred } = imageDirectory(id);
-  return `../../api/images/thumbnail/${region}/${thousand}/${hundred}/${padId(id)}.png`;
+  return `${imageApiBase()}/images/thumbnail/${region}/${thousand}/${hundred}/${padId(id)}.png`;
 }
 
 export function fullImagePath(id) {
   const { thousand, hundred } = imageDirectory(id);
-  return `../../api/images/full/transparent/${thousand}/${hundred}/${padId(id)}.png`;
+  return `${imageApiBase()}/images/full/transparent/${thousand}/${hundred}/${padId(id)}.png`;
 }
 
 // 목록 썸네일을 먼저 글로벌 경로에서 불러오고, 없으면 일본판 경로를 시도합니다.
